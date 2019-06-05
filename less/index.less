@@ -54,6 +54,137 @@ table {
 }
 
 html, body {
-    height: 100%;
+	height: 100%;
+	font-size: 62.5%;
 }
 
+@lineheight: 150%;
+@introskillscolor: #C25B56;
+@righttsidecolor: #FEF6EB;
+@leftside: #96C0CE;
+@fontcolor: white;
+@rightsidepadding: 2%;
+
+
+h1{
+	text-decoration: underline;
+
+}
+.column {
+	display: flex;
+	flex-direction: column;
+}
+
+.order{
+	display: list-item;
+	list-style: square;
+	margin-left: 6%;
+}
+
+.bothsides{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width:100%;
+	background-color: @leftside;
+	
+	.leftside{
+		width:50%;
+		font-size: 1.8rem;
+		color: @fontcolor;
+		.column();
+
+		img{
+			width:50%;
+		}
+	}
+
+	.rightside{
+		width:50%;
+		font-size: 1.6rem;
+		.column();
+		background-color: @righttsidecolor;
+	}
+
+	@media(max-width: 500){
+		flex-direction: column;
+	}
+
+}
+
+.leftside{
+	align-items: center;
+	
+	.leftcontent{
+		.column();
+		align-items: center;
+		line-height: 200%;
+
+	}//content on the left side
+	
+	.navbar{
+		nav{
+			flex-direction: row;
+			align-items: none;
+			justify-content: space-evenly;
+			font-size: 1.6rem;
+			margin-bottom: 3%;
+			width: 100%;
+	
+			a{
+				text-decoration: none;
+				color:@fontcolor;
+			}
+			a:hover{
+				color: grey;
+			}
+		
+		}
+	}
+}//whole left side
+
+.rightside{
+	.column();
+	line-height: @lineheight;
+	padding-top: 5%;
+	
+	section{
+		margin: 3%;
+	}
+
+	.intro{
+		background-color: @introskillscolor;
+		color: @fontcolor;
+		padding: @rightsidepadding;
+		p{
+			text-indent: 2%;
+
+		}//p
+	}//intro
+
+	.workhistory{
+		padding: @rightsidepadding;
+		li{
+			.order();
+		} // li
+		
+	} // Relevant Experience
+
+	.skills{
+		background-color: @introskillscolor;
+		padding: @rightsidepadding;
+		color: @fontcolor;
+		ul{
+			margin-top: 3%;
+			li{
+				.order();
+			} //li
+		}//ul
+	} // skills
+
+	.contact{
+		padding: @rightsidepadding
+	}
+
+}//whole right side
